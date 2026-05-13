@@ -32,7 +32,7 @@ export default function OpeningPopup() {
           
           
           <div className="space-y-5">
-            <p className="text-sm tracking-[4px] uppercase">
+            <p className="text-sm tracking-[4px] uppercase text-neutral-600">
               Limited Edition
             </p>
 

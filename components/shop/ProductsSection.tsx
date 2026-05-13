@@ -1,6 +1,6 @@
 import Container from "../shared/Container";
 import ProductCard from "./ProductCard";
-import { products } from "@/data/products";
+import { shopProducts } from "@/data/shopProducts";
 
 export default function ProductsSection() {
   return (
@@ -20,7 +20,7 @@ export default function ProductsSection() {
 
         {/* Product Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((item) => (
+          {shopProducts.map((item) => (
             <ProductCard
               key={item.id}
               name={item.name}
