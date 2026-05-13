@@ -36,7 +36,7 @@ export default function OpeningPopup() {
               Limited Edition
             </p>
 
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-black">
               Eid Luxury Gift Collection
             </h2>
 

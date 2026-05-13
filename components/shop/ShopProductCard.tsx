@@ -1,16 +1,24 @@
-type ProductCardProps = {
+
+
+import { useState } from "react";
+
+type ShopProductCardProps = {
   name: string;
-  subtitle: string;
   price: string;
   image: string;
+  onAddToCart: () => void;
 };
 
-export default function ProductCard({
+export default function ShopProductCard({
+  
   name,
-  subtitle,
   price,
   image,
-}: ProductCardProps) {
+  onAddToCart,
+}: ShopProductCardProps) {
+
+  const [added, setAdded] = useState(false);
+
   return (
     <div
       className="
@@ -23,7 +31,7 @@ export default function ProductCard({
       "
     >
       
-      <div className="h-[320px] overflow-hidden">
+      <div className="h-[280px] overflow-hidden">
         <img
           src={image}
           alt={name}
@@ -31,15 +39,11 @@ export default function ProductCard({
         />
       </div>
 
-      {/* Product Info */}
+      
       <div className="p-6 space-y-4">
-        <h3 className="text-2xl font-semibold">
+        <h3 className="text-xl font-semibold">
           {name}
         </h3>
-
-        <p className="text-neutral-400 leading-7 text-sm">
-          {subtitle}
-        </p>
 
         <div className="flex items-center justify-between">
           <p className="text-lg font-medium">
@@ -47,6 +51,14 @@ export default function ProductCard({
           </p>
 
           <button
+            onClick={() => {
+              onAddToCart();
+              setAdded(true);
+
+              setTimeout(() => {
+                setAdded(false);
+              }, 1500);
+            }}
             className="
               px-5
               py-2
@@ -62,7 +74,7 @@ export default function ProductCard({
               color: "var(--gold)",
             }}
           >
-            View Details
+            {added ? "✓ Added" : "Add to Cart"}
           </button>
         </div>
       </div>
