@@ -1,37 +1,24 @@
-import Container from "../shared/Container";
-import Image from "next/image";
 import Link from "next/link";
+import Container from "../shared/Container";
 
 const categories = [
   {
-    title: "Classic",
-    subtitle: "Simple elegance for everyday gifting",
-    image: "/images/classic.jpg",
+    title: "Classic Box",
+    subtitle: "Simple packaging • Limited flavors • 6 / 9 pcs",
+    image: "/images/categories/classic-box.jpg",
     href: "/classic",
   },
   {
-    title: "Signature",
-    subtitle: "Our premium best-selling chocolate experience",
-    image: "/images/signature.jpg",
+    title: "Signature Box ⭐",
+    subtitle: "Full flavor range • Premium gifting • 6 / 9 / 12 pcs",
+    image: "/images/categories/signature-box.jpg",
     href: "/signature",
   },
   {
-    title: "Luxury",
-    subtitle: "Curated themed luxury boxes for unforgettable moments",
-    image: "/images/luxury.jpg",
+    title: "Luxury Boxes 🎁",
+    subtitle: "Curated luxury themes • Premium experience • Fixed chocolates",
+    image: "/images/categories/luxury-box.jpg",
     href: "/luxury",
-  },
-  {
-    title: "Create Your Box",
-    subtitle: "Design your own personalized premium gift",
-    image: "/images/create.jpg",
-    href: "/create-box",
-  },
-  {
-    title: "Most Gifted",
-    subtitle: "Customer favorites for celebrations and events",
-    image: "/images/most-gifted.jpg",
-    href: "/shop",
   },
 ];
 
@@ -40,93 +27,57 @@ export default function CategorySection() {
     <section className="py-24">
       <Container>
 
-        {/* Section Heading */}
+        {/* Heading */}
         <div className="text-center space-y-4 mb-14">
           <p className="text-sm tracking-[4px] uppercase text-neutral-400">
-            Explore Collections
+            Our Premium Collections
           </p>
 
-          <h2
-            className="text-3xl md:text-5xl font-bold"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
-            Premium Chocolate Categories
+          <h2 className="text-4xl md:text-5xl font-bold">
+            Choose Your Chocolate Experience
           </h2>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8">
           {categories.map((item) => (
-            <Link
-              href={item.href}
-              key={item.title}
-            >
+            <Link key={item.title} href={item.href}>
               <div
                 className="
-                  relative
-                  overflow-hidden
-                  border
-                  border-neutral-800
+                  border border-neutral-800
                   rounded-3xl
+                  overflow-hidden
                   cursor-pointer
-                  group
                   hover:border-[var(--gold)]
                   transition-all
                   duration-300
+                  group
                 "
               >
-                {/* Gold top accent line */}
-                <span
-                  className="
-                    absolute
-                    top-0
-                    left-0
-                    right-0
-                    h-[2px]
-                    bg-[var(--gold)]
-                    opacity-0
-                    group-hover:opacity-100
-                    transition-opacity
-                    duration-300
-                    z-10
-                  "
-                />
-
-                {/* Image */}
-                <div className="relative w-full h-48 overflow-hidden">
-                  <Image
+                <div className="h-[320px] overflow-hidden">
+                  <img
                     src={item.image}
                     alt={item.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw,
-                           (max-width: 1024px) 50vw,
-                           33vw"
                     className="
+                      w-full
+                      h-full
                       object-cover
                       transition-transform
                       duration-500
                       group-hover:scale-105
                     "
                   />
-
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black/30" />
                 </div>
 
-                {/* Text */}
-                <div className="p-8">
-                  <h3
-                    className="text-2xl font-semibold mb-4"
-                    style={{ fontFamily: "var(--font-serif)" }}
-                  >
+                <div className="p-6 space-y-4">
+                  <h3 className="text-2xl font-semibold">
                     {item.title}
                   </h3>
 
-                  <p className="text-neutral-400 leading-7">
+                  <p className="text-neutral-400 leading-7 text-sm">
                     {item.subtitle}
                   </p>
                 </div>
-
               </div>
             </Link>
           ))}

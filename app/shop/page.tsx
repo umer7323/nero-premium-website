@@ -29,7 +29,6 @@ export default function ShopPage() {
 
       <section className="py-24">
         <Container>
-
           {/* Heading */}
           <div className="text-center space-y-4 mb-14">
             <p className="text-sm tracking-[4px] uppercase text-neutral-400">
@@ -37,12 +36,19 @@ export default function ShopPage() {
             </p>
 
             <h1 className="text-4xl md:text-6xl font-bold">
-              Shop Luxury Chocolates
+              Explore Our Premium Collections ✨
             </h1>
 
-            <p className="text-neutral-400">
-              Cart Items: {cartCount}
-            </p>
+            <div className="space-y-2">
+              <p className="text-neutral-400">
+                Discover Classic, Signature, and Luxury chocolate gifting
+                experiences crafted for unforgettable moments.
+              </p>
+
+              <p className="text-neutral-400 font-medium">
+                Cart Items: {cartCount}
+              </p>
+            </div>
           </div>
 
           {/* Product Grid */}
@@ -57,28 +63,24 @@ export default function ShopPage() {
               />
             ))}
           </div>
-
         </Container>
       </section>
 
       {/* Upgrade Popup */}
       {showUpgradePopup && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6">
-
           <div className="bg-[#111] border border-neutral-800 rounded-3xl p-8 max-w-xl w-full text-center space-y-6">
-
             <h2 className="text-3xl font-bold">
               Upgrade Your Gift Experience 🎁
             </h2>
 
             <p className="text-neutral-400 leading-7">
-              You’ve selected enough chocolates for a premium gifting experience.
-              Upgrade now with custom luxury boxes, premium dates,
+              You’ve selected enough chocolates for a premium gifting
+              experience. Upgrade now with custom luxury boxes, premium dates,
               dessert jars, and signature extras.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-
               <Link href="/create-box">
                 <button
                   className="px-6 py-3 rounded-full font-semibold"
@@ -97,7 +99,6 @@ export default function ShopPage() {
               >
                 Continue Shopping
               </button>
-
             </div>
           </div>
         </div>

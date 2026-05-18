@@ -17,7 +17,6 @@ export default function CreateBoxPage() {
   const [specialRequest, setSpecialRequest] = useState("");
   const [showUpgradePopup, setShowUpgradePopup] = useState(false);
 
-  /* Auto Scroll Refs */
   const shapeSectionRef = useRef<HTMLDivElement | null>(null);
   const colorSectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -114,7 +113,6 @@ Final Total: PKR ${totalPrice}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
               {["Small", "Medium", "Large"].map((size) => (
                 <div
                   key={size}
@@ -152,7 +150,6 @@ Final Total: PKR ${totalPrice}
                   </p>
                 </div>
               ))}
-
             </div>
           </div>
 
@@ -166,7 +163,6 @@ Final Total: PKR ${totalPrice}
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
-
               {["Square", "Rectangle", "Hexagon"].map((shape) => (
                 <div
                   key={shape}
@@ -198,7 +194,6 @@ Final Total: PKR ${totalPrice}
                   </h3>
                 </div>
               ))}
-
             </div>
           </div>
 
@@ -261,7 +256,7 @@ Final Total: PKR ${totalPrice}
                     } else if (
                       selectedChocolates.length < getMaxSelection()
                     ) {
-                                            const updatedChocolates = [
+                      const updatedChocolates = [
                         ...selectedChocolates,
                         chocolate,
                       ];
@@ -390,67 +385,83 @@ Final Total: PKR ${totalPrice}
             </div>
           </div>
 
-          {/* WHATSAPP BUTTON */}
-          <div className="mt-20 text-center">
+          {/* CHECKOUT BUTTON */}
+          <div className="mt-20 text-center space-y-6">
+
+            <a href="/checkout">
+              <button
+                className="w-full sm:w-auto px-10 py-4 rounded-full text-lg font-semibold"
+                style={{
+                  backgroundColor: "var(--gold)",
+                  color: "#111",
+                }}
+              >
+                Proceed to Secure Checkout ✨
+              </button>
+            </a>
+
+            <p className="text-neutral-400 text-sm">
+              Need help customizing your luxury gift?
+            </p>
+
             <button
               onClick={handleWhatsAppOrder}
-              className="w-full sm:w-auto px-10 py-4 rounded-full text-lg font-semibold"
-              style={{
-                backgroundColor: "var(--gold)",
-                color: "#111",
-              }}
+              className="px-8 py-3 rounded-full border border-neutral-700"
             >
-              Place Order on WhatsApp
+              Chat with Luxury Concierge on WhatsApp
             </button>
+
           </div>
 
         </Container>
       </section>
-                  {showUpgradePopup && (
-  <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6">
 
-    <div className="bg-[#111] border border-neutral-800 rounded-3xl p-8 max-w-xl w-full text-center space-y-6">
+      {/* Upgrade Popup */}
+      {showUpgradePopup && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6">
+          <div className="bg-[#111] border border-neutral-800 rounded-3xl p-8 max-w-xl w-full text-center space-y-6">
 
-      <h2 className="text-3xl font-bold">
-        Upgrade Your Gift Experience 🎁
-      </h2>
+            <h2 className="text-3xl font-bold">
+              Upgrade Your Gift Experience 🎁
+            </h2>
 
-      <p className="text-neutral-400 leading-7">
-        Add Premium Dates, Dessert Jars,
-        Luxury Hampers, and Signature Extras
-        to make your gift unforgettable.
-      </p>
+            <p className="text-neutral-400 leading-7">
+              Add Premium Dates, Dessert Jars,
+              Luxury Hampers, and Signature Extras
+              to make your gift unforgettable.
+            </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
-        <button
-          onClick={() => {
-            setShowUpgradePopup(false);
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              behavior: "smooth",
-            });
-          }}
-          className="px-6 py-3 rounded-full font-semibold"
-          style={{
-            backgroundColor: "var(--gold)",
-            color: "#111",
-          }}
-        >
-          Upgrade Now 💎
-        </button>
+              <button
+                onClick={() => {
+                  setShowUpgradePopup(false);
+                  window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: "smooth",
+                  });
+                }}
+                className="px-6 py-3 rounded-full font-semibold"
+                style={{
+                  backgroundColor: "var(--gold)",
+                  color: "#111",
+                }}
+              >
+                Upgrade Now 💎
+              </button>
 
-        <button
-          onClick={() => setShowUpgradePopup(false)}
-          className="px-6 py-3 rounded-full border border-neutral-700"
-        >
-          Continue Shopping
-        </button>
+              <button
+                onClick={() => setShowUpgradePopup(false)}
+                className="px-6 py-3 rounded-full border border-neutral-700"
+              >
+                Continue Shopping
+              </button>
 
-      </div>
-    </div>
-  </div>
-)}
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );

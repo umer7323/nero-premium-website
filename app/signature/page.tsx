@@ -3,21 +3,25 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/shared/Container";
 import Link from "next/link";
 
-const classicFlavors = [
-  "Dark Chocolate",
-  "Coffee Caramel",
-  "Biscoff",
-  "Strawberry",
-  "White Chocolate",
-];
-
-const premiumFlavors = [
-  "Pistachio",
-  "Nutella",
-  "Almond Praline",
-  "Peanut Butter",
-  "Oreo",
-  "Ganache",
+const signatureProducts = [
+  {
+    id: 1,
+    name: "Signature Box — 6 pcs",
+    price: "PKR 6,500",
+    image: "/images/signature-products/signature-6pcs-detail.jpg",
+  },
+  {
+    id: 2,
+    name: "Signature Box — 9 pcs",
+    price: "PKR 8,500",
+    image: "/images/signature-products/signature-9pcs-detail.jpg",
+  },
+  {
+    id: 3,
+    name: "Signature Box — 12 pcs",
+    price: "PKR 10,500",
+    image: "/images/signature-products/signature-12pcs-detail.jpg",
+  },
 ];
 
 export default function SignaturePage() {
@@ -31,96 +35,80 @@ export default function SignaturePage() {
           {/* Heading */}
           <div className="text-center space-y-4 mb-16">
             <p className="text-sm tracking-[4px] uppercase text-neutral-400">
-              Core Premium Experience
+              Signature Collection
             </p>
 
             <h1 className="text-4xl md:text-6xl font-bold">
-              Signature Box ⭐
+              Signature Chocolate Box ⭐
             </h1>
 
-            <p className="text-neutral-400 max-w-2xl mx-auto leading-8">
-              Signature includes all Classic flavors plus premium
-              signature selections for elevated gifting and unforgettable moments.
+            <p className="text-neutral-400 max-w-3xl mx-auto leading-8">
+              A richer gifting experience with full flavor range,
+              elevated presentation, and unforgettable premium luxury.
             </p>
           </div>
 
-          {/* Size Options */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {/* Product Cards */}
+          <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="border border-neutral-800 rounded-3xl p-8 text-center">
-              <h2 className="text-2xl font-semibold mb-4">
-                Signature Mini
-              </h2>
-              <p className="mb-4">6 Pieces</p>
-              <p className="text-xl font-medium">PKR 3,500</p>
-            </div>
-
-            <div className="border border-neutral-800 rounded-3xl p-8 text-center">
-              <h2 className="text-2xl font-semibold mb-4">
-                Signature Premium
-              </h2>
-              <p className="mb-4">9 Pieces</p>
-              <p className="text-xl font-medium">PKR 4,500</p>
-            </div>
-
-            <div className="border border-neutral-800 rounded-3xl p-8 text-center">
-              <h2 className="text-2xl font-semibold mb-4">
-                Signature Grand
-              </h2>
-              <p className="mb-4">12 Pieces</p>
-              <p className="text-xl font-medium">PKR 5,500</p>
-            </div>
-
-          </div>
-
-          {/* Flavor Section */}
-          <div className="grid md:grid-cols-2 gap-8">
-
-            {/* Classic Flavors */}
-            <div className="border border-neutral-800 rounded-3xl p-8">
-              <h2 className="text-3xl font-semibold mb-6">
-                Included Classic Flavors
-              </h2>
-
-              <div className="space-y-3">
-                {classicFlavors.map((flavor) => (
-                  <p key={flavor} className="text-neutral-300">
-                    • {flavor}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {/* Premium Flavors */}
-            <div className="border border-neutral-800 rounded-3xl p-8">
-              <h2 className="text-3xl font-semibold mb-6">
-                Premium Signature Flavors
-              </h2>
-
-              <div className="space-y-3">
-                {premiumFlavors.map((flavor) => (
-                  <p key={flavor} className="text-neutral-300">
-                    • {flavor}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-20">
-            <Link href="/shop">
-              <button
-                className="px-10 py-4 rounded-full text-lg font-semibold"
-                style={{
-                  backgroundColor: "var(--gold)",
-                  color: "#111",
-                }}
+            {signatureProducts.map((item) => (
+              <div
+                key={item.id}
+                className="
+                  border border-neutral-800
+                  rounded-3xl
+                  overflow-hidden
+                  hover:border-[var(--gold)]
+                  transition-all
+                  duration-300
+                "
               >
-                Select Signature Box
-              </button>
-            </Link>
+                <div className="h-[350px] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="p-6 space-y-5">
+                  <h2 className="text-2xl font-semibold">
+                    {item.name}
+                  </h2>
+
+                  <p className="text-lg font-medium">
+                    {item.price}
+                  </p>
+
+                  <div className="flex gap-4">
+
+                    <button
+                      className="px-6 py-3 rounded-full border"
+                      style={{
+                        borderColor: "var(--gold)",
+                        color: "var(--gold)",
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+
+                    <Link href="/checkout">
+                      <button
+                        className="px-6 py-3 rounded-full font-semibold"
+                        style={{
+                          backgroundColor: "var(--gold)",
+                          color: "#111",
+                        }}
+                      >
+                        Buy Now
+                      </button>
+                    </Link>
+
+                  </div>
+                </div>
+              </div>
+            ))}
+
           </div>
 
         </Container>
