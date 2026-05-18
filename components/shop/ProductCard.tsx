@@ -5,14 +5,12 @@ import Link from "next/link";
 
 type ProductCardProps = {
   name: string;
-  subtitle: string;
   price: string;
   image: string;
 };
 
 export default function ProductCard({
   name,
-  subtitle,
   price,
   image,
 }: ProductCardProps) {
@@ -77,9 +75,7 @@ export default function ProductCard({
             {name}
           </h3>
 
-          <p className="text-neutral-400 leading-7 text-sm">
-            {subtitle}
-          </p>
+    
 
           <p
             className="

@@ -22,12 +22,11 @@ export default function ProductsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {shopProducts.map((item) => (
             <ProductCard
-              key={item.id}
-              name={item.name}
-              subtitle={item.subtitle}
-              price={item.price}
-              image={item.image}
-            />
+                  key={item.id}
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+/>
           ))}
         </div>
 
