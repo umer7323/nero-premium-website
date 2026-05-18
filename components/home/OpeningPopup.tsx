@@ -1,98 +1,93 @@
 "use client";
 
-import { useState } from "react";
-import Button from "../ui/Button";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function OpeningPopup() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!showPopup) return null;
 
   return (
-    <div
-      className="
-        fixed inset-0
-        bg-black/70
-        z-50
-        flex items-center justify-center
-        px-4
-      "
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+
       <div
-        className="
-          bg-white
-          rounded-3xl
-          max-w-5xl
-          w-full
-          p-8
-          relative
-        "
-      >
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          
-          
-          <div className="space-y-5">
-            <p className="text-sm tracking-[4px] uppercase text-neutral-600">
-              Limited Edition
-            </p>
+  className="
+    w-full
+    max-w-2xl
+    rounded-3xl
+    border
+    border-neutral-800
+    bg-[#111]
+    p-6
+    md:p-10
+    text-center
+    shadow-2xl
+  "
+>
 
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-black">
-              Eid Luxury Gift Collection
-            </h2>
+        {/* Small Heading */}
+        <p className="text-sm tracking-[4px] uppercase text-neutral-400 mb-4">
+          Welcome to NERO
+        </p>
 
-            <p className="text-neutral-600 leading-7">
-              Explore curated premium gifting experiences
-              crafted for unforgettable celebrations.
-            </p>
+        {/* Main Heading */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          Luxury Handmade
+          <br />
+          Chocolates 💎
+        </h2>
 
-            <Button text="Shop Now" />
-          </div>
+        {/* Description */}
+        <p className="text-neutral-400 leading-8 max-w-xl mx-auto mb-8">
+          Create your own premium chocolate box,
+          explore luxury hampers, and enjoy unforgettable
+          gifting experiences made for elegant celebrations.
+        </p>
 
-        
-          <div
-            className="
-              relative
-              rounded-3xl
-              overflow-hidden
-              h-105
-              border border-neutral-200
-            "
-          >
-      
+        {/* Highlight */}
+        <div className="space-y-2 mb-10">
+          <p>✓ Premium Handmade Chocolates</p>
+          <p>✓ Fully Customized Luxury Boxes</p>
+          <p>✓ Fast WhatsApp Ordering</p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap justify-center gap-4">
+
+          <Link href="/create-box">
             <button
-              onClick={() => setIsOpen(false)}
-              className="
-                absolute
-                top-4
-                right-4
-                z-20
-                w-10
-                h-10
-                rounded-full
-                border
-                flex
-                items-center
-                justify-center
-                bg-white/20
-                backdrop-blur-sm
-                text-white
-                text-xl
-                transition-all
-                duration-300
-                hover:bg-white/30
-              "
+              className="px-8 py-4 rounded-full font-semibold"
+              style={{
+                backgroundColor: "var(--gold)",
+                color: "#111",
+              }}
             >
-              ✕
+              Start Customizing 💎
             </button>
+          </Link>
 
-            <img
-              src="/images/popup-eid-collection.png"
-              alt="Eid Luxury Collection"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <button
+            onClick={() => setShowPopup(false)}
+            className="px-8 py-4 rounded-full border font-semibold"
+            style={{
+              borderColor: "var(--gold)",
+              color: "var(--gold)",
+            }}
+          >
+            Explore Later
+          </button>
 
         </div>
+
       </div>
     </div>
   );

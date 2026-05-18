@@ -1,47 +1,84 @@
 import Container from "../shared/Container";
-import Button from "../ui/Button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-[80vh] flex items-center py-12"> {/* Reduced height slightly for better focus */}
+    <section className="py-28">
       <Container>
-        {/* Changed items-center to items-start to align the top of text with the top of the image */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start"> 
+
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Content */}
-          <div className="space-y-8 pt-4"> {/* Added slight padding-top to "optically" align with the image top */}
+          <div className="space-y-8">
 
             <p className="text-sm tracking-[4px] uppercase text-neutral-400">
-              Premium Chocolate Experience
+              Premium Handmade Chocolates
             </p>
 
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight">
-              Crafted for Moments That Deserve More Than Chocolate
+            <h1 className="text-4xl md:text-7xl font-bold leading-tight">
+              Luxury Gifting
+              <br />
+              Made Personal 💎
             </h1>
 
-            <p className="text-neutral-400 text-lg leading-relaxed max-w-lg">
-              Luxury chocolates, curated gifting, and personalized
-              chocolate boxes designed for unforgettable moments.
+            <p className="text-neutral-400 text-lg leading-8 max-w-xl">
+              Curated chocolate boxes, premium hampers,
+              luxury gifting experiences, and fully customized
+              handcrafted chocolate collections for unforgettable moments.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button text="Shop Boxes" />
-              <Button text="Shop Gifts" />
+            {/* Feature Highlights */}
+            <div className="space-y-3">
+
+              <p>✓ Classic, Signature & Luxury Boxes</p>
+              <p>✓ Create Your Own Premium Box</p>
+              <p>✓ Luxury Hampers & Premium Dates</p>
+              <p>✓ Fast WhatsApp Ordering</p>
+
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+
+              <Link href="/create-box">
+                <button
+                  className="px-8 py-4 rounded-full font-semibold"
+                  style={{
+                    backgroundColor: "var(--gold)",
+                    color: "#111",
+                  }}
+                >
+                  Create Your Box 💎
+                </button>
+              </Link>
+
+              <Link href="/gifting">
+                <button
+                  className="px-8 py-4 rounded-full border font-semibold"
+                  style={{
+                    borderColor: "var(--gold)",
+                    color: "var(--gold)",
+                  }}
+                >
+                  Explore Hampers 🎁
+                </button>
+              </Link>
+
             </div>
 
           </div>
 
-          {/* Right Side Banner */}
-          {/* We use aspect-square or a fixed aspect ratio to ensure the image has enough "weight" to match the text */}
-          <div className="rounded-3xl overflow-hidden border border-neutral-800 aspect-4-5 lg:aspect-square background: #111010">
+          {/* Right Image */}
+          <div className="relative">
             <img
-              src="/images/hero-banner.png"
-              alt="Luxury Chocolate Banner"
-              className="w-full h-full object-cover" 
+              src="/images/hero.png"
+              alt="Luxury Chocolate Gift Box"
+              className="w-full rounded-3xl object-cover h-95 md:h-150"
             />
           </div>
 
         </div>
+
       </Container>
     </section>
   );
