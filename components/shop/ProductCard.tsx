@@ -94,7 +94,7 @@ export default function ProductCard({
           <div className="flex items-center justify-between">
 
             <p className="text-lg font-medium">
-              {price}
+              PKR {price}
             </p>
 
             {/* Add to Cart */}
