@@ -65,15 +65,15 @@ export default function ShopPage() {
             {shopProducts.map((item) => (
 
               <ShopProductCard
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                price={item.price}
-                image={item.image}
+  key={item.id}
+  id={item.id}
+  name={item.name}
+  price={item.price}
+  image={item.image}
 
-                includes={item.includes}
-                packaging={item.packaging}
-              />
+  includes={item.includes || []}
+  packaging={item.packaging || ""}
+/>
 
             ))}
 
