@@ -5,7 +5,7 @@ import Link from "next/link";
 
 type ProductCardProps = {
   name: string;
-  price: string;
+  price: number;
   image: string;
 };
 
