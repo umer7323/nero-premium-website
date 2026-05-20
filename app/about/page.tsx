@@ -107,6 +107,35 @@ export default function AboutPage() {
               </div>
 
             </div>
+            {/* Contact Block */}
+
+<div className="mt-24 text-center space-y-6">
+
+<h2 className="text-4xl font-bold">
+
+Contact Us
+
+</h2>
+
+<p className="text-neutral-400">
+
+WhatsApp: +92 335 2088597
+
+</p>
+
+<p className="text-neutral-400">
+
+Instagram: @umer8149
+
+</p>
+
+<p className="text-neutral-400">
+
+Email: umer8149@gmail.com
+
+</p>
+
+</div>
           </div>
 
         </Container>

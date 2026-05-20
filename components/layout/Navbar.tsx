@@ -16,7 +16,7 @@ const navLinks = [
   },
   {
     title: "Boxes",
-    href: "/classic",
+    href: "/boxes",
   },
   {
     title: "Create Your Box 💎",
@@ -43,7 +43,10 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/">
-            <div className="text-2xl font-bold tracking-[6px] cursor-pointer">
+            <div className="text-2xl font-bold tracking-[6px] cursor-pointer"
+            style={{
+color:"var(--gold)"
+}} >
               NERO
             </div>
           </Link>

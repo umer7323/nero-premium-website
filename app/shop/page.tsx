@@ -4,107 +4,138 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/shared/Container";
 import ShopProductCard from "@/components/shop/ShopProductCard";
+
 import { shopProducts } from "@/data/shopProducts";
-import { useState } from "react";
+
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 export default function ShopPage() {
-  const [cartCount, setCartCount] = useState(0);
-  const [showUpgradePopup, setShowUpgradePopup] = useState(false);
 
-  const handleAddToCart = () => {
-    const updatedCount = cartCount + 1;
-
-    setCartCount(updatedCount);
-
-    // Trigger popup after 12 items
-    if (updatedCount >= 12) {
-      setShowUpgradePopup(true);
-    }
-  };
+  const { cartCount } = useCart();
 
   return (
     <>
       <Navbar />
 
       <section className="py-24">
+
         <Container>
+
           {/* Heading */}
-          <div className="text-center space-y-4 mb-14">
-            <p className="text-sm tracking-[4px] uppercase text-neutral-400">
-              Premium Collection
+          <div className="text-center mb-16 space-y-4">
+
+            <p className="text-sm uppercase tracking-[5px] text-neutral-400">
+              Shop
             </p>
 
-            <h1 className="text-4xl md:text-6xl font-bold">
-              Explore Our Premium Collections ✨
+            <h1 className="text-5xl font-bold">
+              Browse Individual Chocolates
             </h1>
 
-            <div className="space-y-2">
-              <p className="text-neutral-400">
-                Discover Classic, Signature, and Luxury chocolate gifting
-                experiences crafted for unforgettable moments.
-              </p>
+            <p className="text-neutral-400">
+              Craft your luxury chocolate selection.
+            </p>
 
-              <p className="text-neutral-400 font-medium">
-                Cart Items: {cartCount}
-              </p>
-            </div>
+            {/* Cart */}
+            <Link href="/cart">
+
+              <button
+                className="
+                  px-6 py-3
+                  rounded-full
+                  font-semibold
+                "
+                style={{
+                  backgroundColor: "var(--gold)",
+                  color: "#111",
+                }}
+              >
+                Cart ({cartCount})
+              </button>
+
+            </Link>
+
           </div>
+
 
           {/* Product Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
             {shopProducts.map((item) => (
+
               <ShopProductCard
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                onAddToCart={handleAddToCart}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
 
-      {/* Upgrade Popup */}
-      {showUpgradePopup && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6">
-          <div className="bg-[#111] border border-neutral-800 rounded-3xl p-8 max-w-xl w-full text-center space-y-6">
-            <h2 className="text-3xl font-bold">
-              Upgrade Your Gift Experience 🎁
+                includes={item.includes}
+                packaging={item.packaging}
+              />
+
+            ))}
+
+          </div>
+
+
+          {/* Bottom Upsell Section */}
+
+          <div
+            className="
+            mt-24
+            border border-neutral-800
+            rounded-[32px]
+            p-10
+            text-center
+            space-y-6
+            "
+          >
+
+            <h2 className="text-4xl font-bold">
+
+              Want Something More Personal? 💎
+
             </h2>
 
-            <p className="text-neutral-400 leading-7">
-              You’ve selected enough chocolates for a premium gifting
-              experience. Upgrade now with custom luxury boxes, premium dates,
-              dessert jars, and signature extras.
+            <p className="text-neutral-400 max-w-3xl mx-auto leading-8">
+
+              Design your own luxury chocolate
+              experience with custom shapes,
+              personalized gifting,
+              and premium edible extras.
+
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/create-box">
-                <button
-                  className="px-6 py-3 rounded-full font-semibold"
-                  style={{
-                    backgroundColor: "var(--gold)",
-                    color: "#111",
-                  }}
-                >
-                  Upgrade Now 💎
-                </button>
-              </Link>
+            <Link href="/create-box">
 
               <button
-                onClick={() => setShowUpgradePopup(false)}
-                className="px-6 py-3 rounded-full border border-neutral-700"
+                className="
+                px-8 py-4
+                rounded-full
+                font-semibold
+                "
+                style={{
+                  backgroundColor:"var(--gold)",
+                  color:"#111"
+                }}
               >
-                Continue Shopping
+
+                Create Your Own Box ✨
+
               </button>
-            </div>
+
+            </Link>
+
           </div>
-        </div>
-      )}
+
+        </Container>
+
+      </section>
 
       <Footer />
+
     </>
   );
 }

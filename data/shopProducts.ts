@@ -1,79 +1,87 @@
 export const shopProducts = [
-  // Classic
-  {
-    id: 1,
-    name: "Classic Box — 6 pcs",
-    price: "PKR 4,500",
-    image: "/images/shop/classic-6pcs.jpg",
-  },
-  {
-    id: 2,
-    name: "Classic Box — 9 pcs",
-    price: "PKR 6,500",
-    image: "/images/shop/classic-9pcs.jpg",
-  },
 
-  // Signature
-  {
-    id: 3,
-    name: "Signature Box — 6 pcs",
-    price: "PKR 6,500",
-    image: "/images/shop/signature-6pcs.jpg",
-  },
-  {
-    id: 4,
-    name: "Signature Box — 9 pcs",
-    price: "PKR 8,500",
-    image: "/images/shop/signature-9pcs.jpg",
-  },
-  {
-    id: 5,
-    name: "Signature Box — 12 pcs",
-    price: "PKR 10,500",
-    image: "/images/shop/signature-12pcs.jpg",
-  },
+{
+id:1,
+name:"Pistachio Delight",
+price:250,
+image:"/images/shop/pistachio.jpg"
+},
 
-  // Luxury
-  {
-    id: 6,
-    name: "Royal Indulgence",
-    price: "PKR 12,500",
-    image: "/images/shop/royal-indulgence.jpg",
-  },
-  {
-    id: 7,
-    name: "Nut Lover’s Box",
-    price: "PKR 13,500",
-    image: "/images/shop/nut-lover.jpg",
-  },
-  {
-    id: 8,
-    name: "Classic Elegance",
-    price: "PKR 12,000",
-    image: "/images/shop/classic-elegance.jpg",
-  },
-  {
-    id: 9,
-    name: "Sweet & Crunchy",
-    price: "PKR 11,500",
-    image: "/images/shop/sweet-crunchy.jpg",
-  },
-  {
-    id: 10,
-    name: "Caramel Delight",
-    price: "PKR 12,000",
-    image: "/images/shop/caramel-delight.jpg",
-  },
-  {
-    id: 11,
-    name: "Fruity Bliss",
-    price: "PKR 11,800",
-    image: "/images/shop/fruity-bliss.jpg",
-  },
-  {
-    id: 12,
-    name: "Premium Fusion",
-    price: "PKR 14,500",
-    image: "/images/shop/premium-fusion.jpg",
-  },
+{
+id:2,
+name:"Coffee Caramel",
+price:280,
+image:"/images/shop/coffee-caramel.jpg"
+},
+
+{
+id:3,
+name:"Nutella Truffle",
+price:300,
+image:"/images/shop/nutella.jpg"
+},
+
+{
+id:4,
+name:"Dark Ganache",
+price:270,
+image:"/images/shop/dark-ganache.jpg"
+},
+
+{
+id:5,
+name:"Biscoff Crunch",
+price:290,
+image:"/images/shop/biscoff.jpg"
+},
+
+{
+id:6,
+name:"Strawberry Cream",
+price:260,
+image:"/images/shop/strawberry.jpg"
+},
+
+{
+id:7,
+name:"Oreo Crunch",
+price:280,
+image:"/images/shop/oreo.jpg"
+},
+
+{
+id:8,
+name:"Peanut Butter",
+price:320,
+image:"/images/shop/peanut-butter.jpg"
+},
+
+{
+id:9,
+name:"Almond Praline",
+price:340,
+image:"/images/shop/almond.jpg"
+},
+
+{
+id:10,
+name:"White Chocolate",
+price:250,
+image:"/images/shop/white.jpg"
+},
+
+{
+id:11,
+name:"Ferrero Style",
+price:350,
+image:"/images/shop/ferrero.jpg"
+},
+
+{
+id:12,
+name:"Lotus Caramel",
+price:300,
+image:"/images/shop/lotus.jpg"
+}
+
 ];

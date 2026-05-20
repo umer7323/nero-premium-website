@@ -3,82 +3,93 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="py-28">
+    <section className="py-24 md:py-32">
       <Container>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-          {/* Left Content */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT CONTENT */}
           <div className="space-y-8">
-
-            <p className="text-sm tracking-[4px] uppercase text-neutral-400">
-              Premium Handmade Chocolates
+            <p className="text-sm tracking-[5px] uppercase text-neutral-400">
+              NERO Luxury Collection
             </p>
 
-            <h1 className="text-4xl md:text-7xl font-bold leading-tight">
-              Luxury Gifting
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              NERO —
               <br />
-              Made Personal 💎
+              Crafted for Moments
+              <br />
+              That Deserve
+              <br />
+              More Than Chocolate
             </h1>
 
             <p className="text-neutral-400 text-lg leading-8 max-w-xl">
-              Curated chocolate boxes, premium hampers,
-              luxury gifting experiences, and fully customized
-              handcrafted chocolate collections for unforgettable moments.
+              Luxury artisan chocolates, curated gifting experiences, and
+              unforgettable moments.
             </p>
 
-            {/* Feature Highlights */}
-            <div className="space-y-3">
-
-              <p>✓ Classic, Signature & Luxury Boxes</p>
-              <p>✓ Create Your Own Premium Box</p>
-              <p>✓ Luxury Hampers & Premium Dates</p>
-              <p>✓ Fast WhatsApp Ordering</p>
-
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-
-              <Link href="/create-box">
+            {/* CTA BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-5 pt-4">
+              <Link href="/boxes">
                 <button
-                  className="px-8 py-4 rounded-full font-semibold"
+                  className="
+      px-8 py-4 rounded-full
+      font-semibold
+      transition-all duration-300
+      hover:scale-105
+      "
                   style={{
                     backgroundColor: "var(--gold)",
                     color: "#111",
                   }}
                 >
-                  Create Your Box 💎
+                  Shop Boxes
                 </button>
               </Link>
 
               <Link href="/gifting">
                 <button
-                  className="px-8 py-4 rounded-full border font-semibold"
+                  className="
+      px-8 py-4 rounded-full
+      border font-semibold
+      transition-all duration-300
+      hover:scale-105
+      "
                   style={{
                     borderColor: "var(--gold)",
                     color: "var(--gold)",
                   }}
                 >
-                  Explore Hampers 🎁
+                  Shop Gifts
                 </button>
               </Link>
-
             </div>
-
           </div>
 
-          {/* Right Image */}
+          {/* RIGHT IMAGE */}
           <div className="relative">
             <img
               src="/images/hero.png"
-              alt="Luxury Chocolate Gift Box"
-              className="w-full rounded-3xl object-cover h-95 md:h-150"
+              alt="Premium Chocolate Gifting"
+              className="
+                w-full
+                h-[600px]
+                object-cover
+                rounded-[32px]
+              "
+            />
+
+            {/* Overlay Glow */}
+            <div
+              className="
+                absolute inset-0
+                rounded-[32px]
+                bg-gradient-to-t
+                from-black/40
+                to-transparent
+              "
             />
           </div>
-
         </div>
-
       </Container>
     </section>
   );

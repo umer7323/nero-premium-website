@@ -1,23 +1,32 @@
-
+"use client";
 
 import { useState } from "react";
+import Link from "next/link";
+
+import { useCart } from "@/context/CartContext";
 
 type ShopProductCardProps = {
+  id: number;
   name: string;
-  price: string;
+  price: number;
   image: string;
-  onAddToCart: () => void;
+
+  includes?: string[];
+  packaging?: string;
 };
 
 export default function ShopProductCard({
-  
+  id,
   name,
   price,
   image,
-  onAddToCart,
+  includes,
+  packaging,
 }: ShopProductCardProps) {
 
   const [added, setAdded] = useState(false);
+
+  const { addToCart } = useCart();
 
   return (
     <div
@@ -30,7 +39,8 @@ export default function ShopProductCard({
         duration-300
       "
     >
-      
+
+      {/* Image */}
       <div className="h-[280px] overflow-hidden">
         <img
           src={image}
@@ -39,20 +49,65 @@ export default function ShopProductCard({
         />
       </div>
 
-      
-      <div className="p-6 space-y-4">
-        <h3 className="text-xl font-semibold">
+      {/* Content */}
+      <div className="p-6 space-y-5">
+
+        {/* Product Name */}
+        <h3 className="text-2xl font-semibold">
           {name}
         </h3>
 
-        <div className="flex items-center justify-between">
-          <p className="text-lg font-medium">
-            {price}
-          </p>
+        {/* Includes */}
+        {includes && (
+          <div>
+            <h4 className="font-semibold mb-2">
+              Includes:
+            </h4>
+
+            <ul className="text-neutral-400 space-y-1 text-sm">
+              {includes.map((item) => (
+                <li key={item}>
+                  • {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Packaging */}
+        {packaging && (
+          <div>
+            <h4 className="font-semibold mb-2">
+              Packaging:
+            </h4>
+
+            <p className="text-neutral-400 text-sm">
+              {packaging}
+            </p>
+          </div>
+        )}
+
+        {/* Price */}
+        <p className="text-xl font-semibold">
+          PKR {price}
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4">
 
           <button
             onClick={() => {
-              onAddToCart();
+
+              addToCart({
+                id,
+                name,
+                price,
+                image,
+                quantity: 1,
+                includes,
+                packaging,
+              });
+
               setAdded(true);
 
               setTimeout(() => {
@@ -60,14 +115,11 @@ export default function ShopProductCard({
               }, 1500);
             }}
             className="
-              px-5
-              py-2
-              rounded-full
+              px-6 py-3 rounded-full
               border
               text-sm
               transition-all
               duration-300
-              hover:scale-105
             "
             style={{
               borderColor: "var(--gold)",
@@ -76,7 +128,24 @@ export default function ShopProductCard({
           >
             {added ? "✓ Added" : "Add to Cart"}
           </button>
+
+          <Link href="/cart">
+            <button
+              className="
+                px-6 py-3 rounded-full
+                font-semibold
+              "
+              style={{
+                backgroundColor: "var(--gold)",
+                color: "#111",
+              }}
+            >
+              View Cart
+            </button>
+          </Link>
+
         </div>
+
       </div>
     </div>
   );

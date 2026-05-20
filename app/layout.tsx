@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Montserrat } from "next/font/google";
+
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
+import FloatingWhatsapp from "@/components/shared/FloatingWhatsapp";
+import UpsellPopup from "@/components/shared/UpsellPopup";
 
-const cormorant = Cormorant_Garamond({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-serif",
-});
-
-const jost = Jost({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-sans",
+  variable: "--font-main",
 });
 
 export const metadata: Metadata = {
-  title: "Nero",
-  description: "Premium Chocolate",
+  title: "NERO",
+  description: "Premium Chocolate Experience",
 };
 
 export default function RootLayout({
@@ -25,8 +22,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
-      <body>{children}</body>
+
+    <html
+      lang="en"
+      className={montserrat.variable}
+    >
+
+      <body className="font-[family:var(--font-main)]">
+
+        <CartProvider>
+
+          {children}
+          <UpsellPopup />
+
+           <FloatingWhatsapp />
+
+        </CartProvider>
+
+      </body>
+
     </html>
+
   );
 }
